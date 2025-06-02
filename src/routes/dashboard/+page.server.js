@@ -1,9 +1,9 @@
-/* src/routes/dashboard/+page.server.js */
+
 import { getServices, createService, deleteService } from '$lib/db';
 import { fail } from '@sveltejs/kit';
 
 /**
- * Load-Funktion - lädt nur die Services für das Dashboard
+ * Load-Funktion 
  */
 export const load = async () => {
     try {

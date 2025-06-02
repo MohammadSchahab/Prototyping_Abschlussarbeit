@@ -1,4 +1,4 @@
-/* src/routes/services/+page.server.js */
+
 import { getServices, getCategories } from '$lib/db';
 
 /**
@@ -13,7 +13,7 @@ export const load = async ({ url }) => {
   // Alle Services laden
   const services = await getServices();
   
-  // Alle verfügbaren Kategorien laden (für Filter-UI)
+  // Alle verfügbaren Kategorien laden 
   const categories = await getCategories();
   
   // Daten an die +page.svelte zurückgeben

@@ -18,7 +18,7 @@ const db = client.db("Hula"); // select database
 export async function getAllServices() {
   let services = [];
   try {
-    const collection = db.collection("service"); // ✅ Richtig: kleingeschrieben
+    const collection = db.collection("service");
     
     // Einfache Abfrage ohne Filter
     const query = {};
@@ -85,11 +85,6 @@ export async function createService(service) {
     // Standardwerte setzen
     service.createdAt = new Date();
     
-    // Wenn kein Bild angegeben ist, Platzhalter verwenden
-    if (!service.imageUrl) {
-      service.imageUrl = "https://via.placeholder.com/400x300/6c757d/ffffff?text=Service";
-    }
-    
     const collection = db.collection("service");
     const result = await collection.insertOne(service);
     
@@ -145,17 +140,17 @@ export async function getCategories() {
  */
 
 /**
- * ServiceRequest in MongoDB "Hula" Collection "serviceRequest" erstellen
+ * ServiceRequest in Mongo "Hula" Collection "serviceRequest" erstellen
  */
 export async function createServiceRequest(serviceRequestData) {
     try {
         const collection = db.collection('serviceRequest'); 
         
-        // ServiceRequest mit automatisch gesetzten Feldern erstellen
+        // ServiceRequest mit automatisch gesetzt Feldern erstellen
         const serviceRequest = {
             ...serviceRequestData,
             _id: new ObjectId(),
-            // Automatisch gesetzte Felder:
+            // Automatisch gesetze Felder:
             status: 'new',
             createdAt: new Date(),
             updatedAt: new Date()

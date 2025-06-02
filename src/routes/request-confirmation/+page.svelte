@@ -1,6 +1,6 @@
-<!-- src/routes/request-confirmation/+page.svelte -->
+
 <script>
-  // Keine Extraktion der Request-ID mehr notwendig
+  
 </script>
 
 <svelte:head>

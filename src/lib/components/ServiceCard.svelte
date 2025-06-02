@@ -1,19 +1,15 @@
-<!-- src/lib/components/ServiceCard.svelte -->
+
 <script>
-  // Svelte 5 Runes - wir holen die Prop "service" über $props()
+  //  hole die Prop "service" über $props()
   let { service } = $props();
   
-  // formatPrice erwartet ein Objekt, das entweder
+  // formatPrice erwarte ein Objekt, das entweder
   //  • { amount: Number, currency: String, unit?: String }
   //  • { minAmount: Number, currency: String, unit?: String }
   // enthalten kann. Beispiele:
-  //   { amount: 64, currency: 'CHF', unit: 'hour' }      → "64,00 CHF/h"
-  //   { minAmount: 84, currency: 'CHF', unit: 'hour' }   → "ab 84,00 CHF/h"
-  //   { amount:104, currency: 'CHF', unit: 'flat' }      → "104,00 CHF"
-  //   { minAmount:120, currency: 'CHF', unit: 'flat' }   → "ab 120,00 CHF"
-  //   { amount: 50, currency: 'CHF' }                    → "50,00 CHF"
-  //   { minAmount: 50, currency: 'CHF' }                 → "ab 50,00 CHF"
-  //   undefined oder ungültiges Objekt                    → "– CHF"
+  //   { amount: 64, currency: 'CHF', unit: 'hour' }      "64,00 CHF/h"
+  //   { minAmount: 84, currency: 'CHF', unit: 'hour' }   "ab 84,00 CHF/h"
+  //   undefined oder ungültiges Objet                    "– CHF"
   const formatPrice = (price) => {
     // 1) Prüfen, ob price existiert:
     if (!price || typeof price !== 'object') {
@@ -30,15 +26,15 @@
       amt = price.amount;
     } else if (typeof price.minAmount === 'number') {
       amt = price.minAmount;
-      prefix = 'ab '; // "ab 84,00 CHF" statt "84,00 CHF"
+      prefix = 'ab '; 
     }
 
-    // 3) Falls weder amount noch minAmount eine Zahl ist, Fallback:
+    // 3) Falls weder amount noch minAmount eine Zahl ist
     if (amt === null) {
       return '– CHF';
     }
 
-    // 4) Auf zwei Dezimalstellen runden und Dezimalpunkt → Dezimalkomma:
+    // 4) Auf zwei Dezimalstellen runden und Dezimalpunkt -> Dezimalkomma:
     //    64           "64.00"  "64,00"
     const str = amt.toFixed(2).replace('.', ',');
 
@@ -46,8 +42,8 @@
     let result = `${prefix}${str} ${price.currency}`;
 
     // 6) Einheit (unit) behandeln:
-    //    • Bei unit === "hour" → "/h" anhängen
-    //    • Bei unit === "flat" → kein Suffix (Pauschalpreis)
+    //    • Bei unit === "hour" -> "/h" anhängen
+    //    • Bei unit === "flat" -> kein Suffix (Pauschalpreis)
     if (price.unit === 'hour') {
       result += '/h';
     }
@@ -79,7 +75,7 @@
   // Funktion, um eine Hintergrundfarbe basierend auf der Kategorie zurückzugeben
   const getCategoryColor = (category) => {
     // Map von Kategorien zu CSS-Klassen für Farben
-    // Hier sind  Bootstrap-Farben
+    //Bootstrap-Farben
     const colorMap = {
       'Abholung und Lieferung': 'bg-info bg-opacity-10',
       'Datenübertragung': 'bg-warning bg-opacity-10',
@@ -94,7 +90,7 @@
 <a class="service-card-link text-decoration-none d-block h-100" href={`/services/${service._id}`}>
   <div class="card h-100 border-0 shadow-sm transition-hover">
     <div class="card-body d-flex flex-column h-100 p-4">
-      <!-- Kategorie-Badge und Icon in der oberen rechten Ecke -->
+      <!-- Kategorie-Badge und Icon -->
       <div class="d-flex justify-content-between align-items-start mb-3">
         <div class="service-icon-container {getCategoryColor(service.category)}">
           <i class="bi {getCategoryIcon(service.category)} fs-3"></i>

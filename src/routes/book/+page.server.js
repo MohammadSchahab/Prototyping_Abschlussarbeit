@@ -1,13 +1,7 @@
-// src/routes/book/+page.server.js
 
 import { createServiceRequest } from '$lib/db';
 import { fail, redirect } from '@sveltejs/kit';
 
-// Lädt nur leere Daten (kein Dropdown nötig)
-export const load = async () => {
-    console.log('📋 Book-Seite wird geladen...');
-    return {};
-};
 
 export const actions = {
     default: async ({ request }) => {
@@ -30,13 +24,13 @@ export const actions = {
             }
         };
 
-        console.log('📦 Service:', serviceRequestData.requestedService,
+        console.log(' Service:', serviceRequestData.requestedService,
                     'Kunde:', serviceRequestData.customerName);
 
-        // Prüft Pflichtfelder
+        // Prüft (Vali )Pflichtfelder
         const errors = validateServiceRequest(serviceRequestData);
         if (Object.keys(errors).length > 0) {
-            console.log('❌ Validierungsfehler:', errors);
+            console.log(' Validierungsfehler:', errors);
             return fail(400, {
                 errors,
                 formData: serviceRequestData
@@ -60,7 +54,7 @@ export const actions = {
     }
 };
 
-// Validiert Eingaben kurz und knapp
+// Validiert Eingaben 
 function validateServiceRequest(data) {
     const errors = {};
 
@@ -80,7 +74,7 @@ function validateServiceRequest(data) {
         errors.preferredDate = 'Datum fehlt';
     }
     if (!data.address.street) {
-        errors.street = 'Straße fehlt';
+        errors.street = 'Strasse fehlt';
     }
     if (!data.address.city) {
         errors.city = 'Ort fehlt';

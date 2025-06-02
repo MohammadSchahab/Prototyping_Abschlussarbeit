@@ -24,7 +24,7 @@
   ];
 </script>
 
-<!-- Hero-Sektion mit symmetrischem Design -->
+<!-- Startsei  -->
 <section class="hero-section py-5">
   <div class="container text-center">
     <div class="row justify-content-center">

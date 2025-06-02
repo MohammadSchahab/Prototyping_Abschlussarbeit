@@ -15,5 +15,5 @@
 </div>
 
 <style>
-  /* Keine zusätzlichen Styles nötig, da Bootstrap verwendet wird */
+  
 </style>

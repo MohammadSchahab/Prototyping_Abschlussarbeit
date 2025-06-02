@@ -1,12 +1,11 @@
 <script>
  /*
- Sehr simples Offcanvas-Menü:
+
  - Store mit writable für reaktiven Boolean
- - Toggle nur für Kleingeräte; Bootstrap-Collapse spare ich mir,
- um JS-Payload klein zu halten. */
+ - Toggle nur für Kleingeräte */
 import { writable } from 'svelte/store';
 
-// Store ohne $ im Variablennamen definieren
+
 const isOpen = writable(false);
 
 function toggle() {

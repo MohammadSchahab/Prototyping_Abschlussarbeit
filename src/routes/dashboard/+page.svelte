@@ -1,4 +1,4 @@
-<!-- src/routes/dashboard/+page.svelte -->
+
 <script>
     import { enhance } from "$app/forms";
     import { invalidateAll } from "$app/navigation";
@@ -26,12 +26,12 @@
 </script>
 
 <svelte:head>
-    <title>Admin Dashboard | HULA Techhilfe</title>
+    <title>Admin Dashboard | HULA technische Hilfe</title>
 </svelte:head>
 
 <div class="container py-4">
     <div class="d-flex align-items-center mb-4">
-        <h1>🔧 Admin Dashboard</h1>
+        <h1>Admin Dashboard</h1>
     </div>
 
     <!-- Services verwalten Überschrift -->
@@ -99,7 +99,7 @@
                         </div>
                     </div>
 
-                    <!-- Dauer in Minuten hinzugefügt -->
+                    <!-- Dauer in Minuten  -->
                     <div class="mb-3">
                         <label for="durationMin" class="form-label">Dauer (Minuten)</label>
                         <input type="number" class="form-control" id="durationMin" name="durationMin" min="0" />
