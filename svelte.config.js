@@ -1,6 +1,5 @@
-// svelte.config.js
-import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import adapter from '@sveltejs/adapter-netlify';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,6 +13,12 @@ const config = {
 		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto
 		adapter: adapter()
 	}
+}; export default {
+	kit: {
+		adapter: adapter({
+			edge: false,
+			split: false
+		})
+	}
 };
 
-export default config;

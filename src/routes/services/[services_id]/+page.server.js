@@ -40,7 +40,7 @@ export const load = async ({ params }) => {
  */
 export const actions = {
     // Da wir keine action-Parameter im Formular haben (wie ?/action),
-    // wird standardmäßig die default-Action aufgerufen
+    // wird standardmässig die default-Action aufgerufen
     default: async ({ request, params }) => {
         // Extrahiere die Formulardaten aus dem Request
         // FormData ist eine Web-API zum Verarbeiten von Formulardaten
