@@ -1,9 +1,9 @@
-/* src/routes/services/[services_id]/+page.server.js */
+
 import { getService, createServiceRequest } from '$lib/db';
 import { error, fail, redirect } from '@sveltejs/kit';
 
 /**
- * SvelteKit Server-Load-Funktion für die Service-Detailseite
+ * Server-Load-Funktion für die Service-Detailseit
  * 
  * Diese Funktion wird aufgerufen, wenn die Seite geladen wird.
  * Sie holt die Daten, die das Frontend benötigt, bevor die Seite gerendert wird.
@@ -14,11 +14,11 @@ export const load = async ({ params }) => {
     const id = params.services_id;
     
     // Hole den Service mit dieser ID aus der Datenbank
-    // Dies ist eine asynchrone Operation (daher das await)
+    //  asynchrone Operation (await)
     const service = await getService(id);
     
     // Fehlerbehandlung: Wenn kein Service gefunden wurde
-    // Wirf einen 404-Fehler (Not Found), der von SvelteKit behandelt wird
+    // Wirf 404-Fehler (Not Found)
     if (!service) {
         throw error(404, {
             message: 'Service nicht gefunden'
@@ -33,13 +33,13 @@ export const load = async ({ params }) => {
 };
 
 /**
- * SvelteKit Server-Actions für die Service-Detailseite
+ * Server-Actions für die Service-Detailseite
  * 
- * Actions werden aufgerufen, wenn ein Formular abgesendet wird.
- * Sie ermöglichen serverseitige Verarbeitung von Formulardaten.
+ * Actions werden aufgerufen, wenn ein Formular abgesendet wird
+ * Sie ermöglichen serverseitige Verarbeitung von Formulardaten
  */
 export const actions = {
-    // Da wir keine action-Parameter im Formular haben (wie ?/action),
+    // Da kes keine action-Parameter im Formular gibt 
     // wird standardmässig die default-Action aufgerufen
     default: async ({ request, params }) => {
         // Extrahiere die Formulardaten aus dem Request
